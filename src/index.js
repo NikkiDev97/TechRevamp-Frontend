@@ -11,7 +11,7 @@ const Routes = require('./routes/routes.js');
 // Configuraciones del motor de vistas
 app.set('case sensitive routing', true);
 app.set('appName', 'techrevamp');
-app.set('port', 4000);
+app.set('port', 3000);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 

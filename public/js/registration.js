@@ -169,7 +169,8 @@ document.addEventListener('DOMContentLoaded', function () {
         errorParagraph.innerHTML = '';
 
         // Send the data to the server
-        fetch("http://localhost:4000/api/registrations", {
+        fetch("http://localhost:3000/api/registrations", {
+        //fetch("http://techrevamp-backend:8080/api/registrations", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

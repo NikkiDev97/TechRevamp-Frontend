@@ -1,7 +1,7 @@
 // importar pool de conexiones bd
 //const pool = require ("./database/connection-database.js")
 // encriptación
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 
 // Obtener lista productos

@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "about-us.js",
   "scripts": {
+    "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "db": "nodemon src/mysql.js",
+    "build": "echo 'No build script defined'",
     "install-deps": "npm install"
   },
   "repository": {
@@ -19,7 +20,7 @@
   },
   "homepage": "https://github.com/GioSalcedo/project-generation#readme",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "ejs": "^3.1.10",
@@ -28,7 +29,7 @@
     "mkdirp": "^3.0.1",
     "morgan": "^1.10.0",
     "mysql2": "^3.10.1",
-    "node-fetch": "^3.3.2",
+    "node-fetch": "^2.7.0",
     "nodemon": "^3.1.2"
   },
   "description": "",

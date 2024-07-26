@@ -3,6 +3,7 @@ const { Router } = require('express');
 const router = Router();
 const path = require('path');
 const fs = require('fs');
+const fetch = require('node-fetch'); // Importar node-fetch
 let userName ='';
 
 // Middleware para agregar userName al contexto de todas las vistas renderizadas
@@ -12,12 +13,13 @@ router.use((req, res, next) => {
 });
 
 // Autenticación
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const { data } = require('jquery');
 const saltRounds = 10;
 let state = 0;
 
-const BASE_URL = 'http://localhost:8080/api/v1';
+//const BASE_URL = 'http://localhost:8080/api/v1';
+const BASE_URL = 'http://techrevamp-backend:8080/api/v1';
 
 router.get("/", (req, res) => {
   const file = fs.readFileSync('api/products.json', 'UTF-8');
@@ -44,8 +46,15 @@ router.get('/productos', async (req, res) => {
         'Content-Type': 'application/json',
       },
     });
+    // console.log(`Response status: ${productosBackend.status}`);
+
+    // if (!productosBackend.ok) {
+    //   throw new Error(`HTTP error! status: ${productosBackend.status}`);
+    // }
+
     const productos = await productosBackend.json();
 
+    // console.log(productos); // Añadir este log
     const page = parseInt(req.query.page) || 1;
     const perPage = 8;
     const start = (page - 1) * perPage;
@@ -71,6 +80,7 @@ router.get('/productos-parcial', async (req, res) => {
     });
   
     const productos = await productosBackend.json();
+    // console.log(productos); // Añadir este log
 
     const page = parseInt(req.query.page) || 1;
     const perPage = 8;
